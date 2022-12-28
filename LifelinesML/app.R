@@ -5,7 +5,9 @@
 library(shiny)
 
 ### IMPORTS ###
-source("pages/welcome.R")
+# Import all files from pages folder
+files.sources = list.files("~/pages/")
+sapply(files.sources, source)
 
 ui <- fluidPage(
   navbarPage(
