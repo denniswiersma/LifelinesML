@@ -40,3 +40,6 @@ vignettes/*.pdf
 
 # Folder containing lifelines data
 data
+
+# MacOS specific files
+.DS_Store
