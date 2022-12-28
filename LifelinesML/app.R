@@ -6,7 +6,7 @@ library(shiny)
 
 ### IMPORTS ###
 # Import all files from pages folder
-files.sources = list.files("~/pages/")
+files.sources = paste0("pages/", list.files("pages/"))
 sapply(files.sources, source)
 
 ui <- fluidPage(
