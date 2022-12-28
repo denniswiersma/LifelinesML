@@ -12,12 +12,17 @@ sapply(files.sources, source)
 ui <- fluidPage(
   navbarPage(
     title = "LifelinesML",
-    welcome_page
+    welcome_page,
+    navbarMenu(
+        title = "Insight",
+        variable_definitions_page
+    )
   )
 )
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
+    output$variable_definition_table <- variable_definition_table
 }
 
 # Run the application 

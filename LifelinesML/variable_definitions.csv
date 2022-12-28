@@ -1,0 +1,73 @@
+﻿Variable,Label
+AGE ,Current age
+GENDER ,"Gender (1=male, 2=female) "
+GROUP_SIZE_CAT ,"Group size in categories (0-200=1, 200-300=2, 300-400=3 ... 1300-1400=13, 1400-1500=14, 1500+=15) "
+AGE_T1 ,Age at T1 
+AGE_T2,Age at T2 
+BMI_T1 ,Body Mass Index (kg/M^2) at baseline as mean (T1) 
+WEIGHT_T1 ,Weight in kg at second assessment as mean (T1)
+HIP_T1 ,Hip circumference in cm at baseline as mean (T1) 
+HEIGHT_T1 ,Height in cm at baseline as mean (T1) 
+WAIST_T1 ,Waist circumference in cm at baseline as mean T1)
+BMI_T2 ,Body Mass Index (kg/M^2) at second assessment as mean (T2) 
+WEIGHT_T2 ,Weight in kg at second assessment as mean (T2)
+HIP_T2 ,Hip circumference in cm at second assessment as mean (T2)
+HEIGHT_T2 ,Height in cm at second assessment as mean (T2) 
+WAIST_T2 ,Waist circumference in cm at second assessment as mean (T2) 
+EDUCATION_LOWER_T1,Education at baseline in percentage where the highest obtained degree is lower education (ranging from no education to junior general secondary education) (T1) 
+EDUCATION_LOWER_T2 ,Education at second assessment in percentage where the highest obtained degree is lower education (ranging from no education to junior general secondary education) (T2) 
+WORK_T1 ,Paid work (for at least a few hours a week) at baseline in percentage (T1) 
+WORK_T2 ,Paid work (for at least a few hours a week) at second assessment in percentage (T2) 
+LOW_QUALITY_OF_ LIFE_T1 ,Low quality of life (poor/mediocre) at baseline in percentage (T1) 
+LOW_QUALITY_OF_ LIFE_T2 ,Low quality of life (poor/mediocre) at second assessment in percentage (T2) 
+DBP_T1 ,Diastolic Blood Pressure in mm hg at baseline as mean (T1) 
+DBP_T2 ,Diastolic Blood Pressure in mm hg at second assessment as mean (T2) 
+HBF_T1,Pulse rate in beats per minute at baseline as mean (T1) 
+HBF_T2 ,Pulse rate in beats per minute at second assessment as mean (T2) 
+MAP_T1 ,Mean Average Pressure at baseline as mean (T1)
+MAP_T2 ,Mean Average Pressure at second assessment as mean (T2)
+SBP_T1 ,Systolic Blood Pressure in mm hg at baseline as mean (T1) 
+SBP_T2 ,Systolic Blood Pressure in mm hg at second assessment as mean (T2) 
+HTN_MED_T1 ,Hypertension medication at baseline first visit in percentage (T1)
+CHO_T1 ,Cholesterol (mmol/L) assessed on samples from baseline as mean (T1) 
+GLU_T1,Glucose (mmol/L) assessed on samples from baseline as mean (T1) 
+CHO_T2,Cholesterol (mmol/L) assessed on samples from second assessment second visit as mean (T2) 
+GLU_T2 ,Glucose (mmol/L) assessed on samples from second assessment as mean (T2) 
+PACKYEARS ,"Cumulative smoking history: 1 packyear = 20 cigarettes per day for 1 year (or 10 cigarettes for 2 years, or 1 cigarette for 20 years). NB. Cigars are regarded as 3 cigarettes. (T1)"
+SMOKING ,Currently smoking at baseline in percentage (T1) 
+LLDS ,"Lifelines Diet Score as continuous variable, with a range between 0 and 48, at baseline as mean (T1) "
+Quintile_LLDS ,"Lifelines Diet Score as categorical variable, with Q1 referring to poorest and Q5 referring to highest diet quality as mean (T1) "
+ALCOHOL_INTAKE_T1 ,Total alcohol intake in grams per day as a mean at baseline (T1) 
+KCAL_INTAKE_T1 ,Total energy intake per day expressed in kcal as a mean at baseline (T1) 
+MWK_VAL ,Minutes of weekly physical activity on moderate and vigorous intensity level at baseline as mean (T1)
+SCOR_VAL ,"Score for weekly physical activity on moderate and vigorous intensity level, based on the sum of minutes per activity times the intensity of the specific activity at baseline as mean (T1) "
+MWK_NO_VAL ,"Minutes of weekly physical activity on moderate and vigorous intensity level, in leisure time and commuting domains (but not occupational) at baseline as mean (T1) "
+SCOR_NO_VAL ,"Score for weekly physical activity on moderate and vigorous intensity level, in leisure time and commuting domains (but not occupational), based on the sum of minutes per activity times the intensity of the specific activity at baseline as mean (T1) "
+PREGNANCIES ,Number of times participant has given birth at baseline as mean (T1) 
+SLEEP_QUALITY ,Poor sleep quality as measured through the PSQI at baseline in percentage (T1) 
+SPORTS_T1 ,Participates in sports at baseline in percentage (T1) 
+CYCLE_COMMUTE_T 1 ,Cycles to work (commute) at least 1 day during the week at baseline in percentage (T1) 
+VOLUNTEER_T1 ,Participates in organized volunteer work at baseline in percentage (T1) 
+RESPIRATORY_DISEA SE_T1 ,Respiratory disease at baseline in percentage (T1) 
+METABOLIC_DISORD ER_T1 ,Metabolic disorder at baseline in percentage (T1) 
+METABOLIC_DISORD ER_T2 ,Metabolic disorder at second assessment in percentage (T2) 
+OSTEOARTHRITIS_T1 ,Joint degradation (osteoarthritis) at baseline in percentage (T1) 
+DIAG_CFS_CDC ,Fulfill CDC Chronic Fatigue Syndrome criteria in percentage (T2) 
+DIAG_FIBROMYALGIA _ACR ,Fulfill ACR Fibromyalgia criteria in percentage (T2) 
+DIAG_IBS_ROME3 ,Fulfill ROMEIII Irritable bowel syndrome criteria in percentage (T2)
+C_SUM_T1 ,"Sum of all items within facet Competence. Complete cases only, as mean (T1) "
+A_SUM_T1 ,"Sum of all items within facet Anger-hostility. Complete cases only, as mean (T1)"
+SC_SUM_T1 ,"Sum of all items within facet Self-consciousness. Complete cases only, as mean (T1)"
+I_SUM_T1 ,"Sum of all items within facet Impulsivity. Complete cases only, as mean (T1)"
+E_SUM_T1 ,"Sum of all items within facet Extraversion. Complete cases only, as mean (T1) "
+SD_SUM_T1 ,"Sum of all items within facet Self-discipline. Complete cases only, as mean (T1) "
+V_SUM_T1 ,"Sum of all items within facet Vulnerability. Complete cases only, as mean (T1)"
+D_SUM_T1 ,"Sum of all items within facet Deliberation. Complete cases only, as mean (T1) "
+LTE_SUM_T1 ,Total number of stressful life events that happened to participant in the past year at baseline as mean (T1) 
+LDI_SUM_T1 ,Total amount of stress from long-term/chronic stressors experienced by the participant at baseline as mean (T1) 
+LTE_SUM_T2 ,Total number of stressful life events that happened to participant in the past year at second assessment as mean (T2) 
+LDI_SUM_T2 ,Total amount of stress from long-term/chronic stressors experienced by the participant at second assessment as mean (T2) 
+NSES_YEAR ,Year for which the NSES score was calculated as mean 
+NSES ,"Neighborhood socio-economic status score according to CBS Statistics Netherlands, based on inhabitants’ educational level, income and job prospective as mean "
+MENTAL_DISORDER_ T1 ,"Cumulative mean diagnosis of major depressive disorder, dysthymia, generalized anxiety disorder, panic disorder, agoraphobia and social anxiety disorder / social phobia at baseline in percentage (T1) "
+MENTAL_DISORDER_ T2 ,"Cumulative mean diagnosis of major depressive disorder, dysthymia, generalized anxiety disorder, panic disorder, agoraphobia and social anxiety disorder / social phobia at second assessment in percentage (T2)"
