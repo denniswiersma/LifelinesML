@@ -3,6 +3,7 @@
 
 ### LIBRARIES ###
 library(shiny)
+library(ggplot2)
 
 ### IMPORTS ###
 # Import all files from pages folder
@@ -18,7 +19,8 @@ ui <- fluidPage(
     navbarMenu(
         title = "Insight",
         variable_definitions_page,
-        dataset_page
+        dataset_page,
+        scatterplot_page
     )
   )
 )
@@ -30,6 +32,17 @@ server <- function(input, output) {
     
     # Dataset table page
     output$dataset_table <- renderDataTable(dataset[input$dataset_table_selection])
+    
+    # Scatterplot page
+    output$scatterplot <- renderPlot(
+        ggplot(dataset, aes_string(x = input$scatter_x,
+                                   y = input$scatter_y,
+                                   color = input$scatter_col)) + 
+            geom_point() +
+            labs(title = paste(colnames(dataset[input$scatter_y]), 
+                               "as a function of", 
+                               colnames(dataset[input$scatter_x])))
+        ) 
 }
 
 # Run the application 
