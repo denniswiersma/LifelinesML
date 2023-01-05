@@ -10,6 +10,6 @@ dataset_page <- tabPanel(
                 label = "Variable:",
                 choices = colnames(dataset),
                 multiple = TRUE),
-    HTML("<br><br><br>"),
+    HTML("<br><br><br>"), # Add whitespace
     dataTableOutput("dataset_table")
 )
