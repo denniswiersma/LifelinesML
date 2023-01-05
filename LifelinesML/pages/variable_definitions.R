@@ -1,7 +1,5 @@
 variable_definitions <- read.csv("variable_definitions.csv")
 
-variable_definition_table <- renderDataTable(variable_definitions)
-
 variable_definitions_page <- tabPanel(
     title = "Variable Definitions",
     h1("Variable Definitions"),

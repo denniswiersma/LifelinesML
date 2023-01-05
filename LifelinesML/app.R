@@ -22,7 +22,7 @@ ui <- fluidPage(
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
-    output$variable_definition_table <- variable_definition_table
+    output$variable_definition_table <- renderDataTable(variable_definitions)
 }
 
 # Run the application 
