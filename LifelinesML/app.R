@@ -15,7 +15,8 @@ ui <- fluidPage(
     welcome_page,
     navbarMenu(
         title = "Insight",
-        variable_definitions_page
+        variable_definitions_page,
+        dataset_page
     )
   )
 )
@@ -23,6 +24,7 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram
 server <- function(input, output) {
     output$variable_definition_table <- renderDataTable(variable_definitions)
+    output$dataset_table <- renderDataTable(dataset[input$dataset_table_selection])
 }
 
 # Run the application 
