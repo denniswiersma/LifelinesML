@@ -1,5 +1,6 @@
 # Load dataset
-dataset <- read.csv(file = "Participants_Aggregated_Age.csv")
+dataset <- read.csv(file = "Participants_Aggregated_Age.csv",
+                    header = TRUE, sep = ",", dec = ",")
 
 dataset_page <- tabPanel(
     title = "Dataset table",
