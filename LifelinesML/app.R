@@ -58,6 +58,14 @@ server <- function(input, output) {
         )) +
             geom_boxplot()
     )
+    
+    output$barplot <- renderPlot(
+        ggplot(dataset, aes_string(
+            x = input$plots_x,
+            fill = input$plots_cols
+        )) +
+            geom_bar()
+    )
 }
 
     
