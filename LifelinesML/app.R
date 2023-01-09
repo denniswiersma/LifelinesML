@@ -3,6 +3,7 @@
 
 ### LIBRARIES ###
 library(shiny)
+library(shinythemes)
 library(ggplot2)
 
 ### IMPORTS ###
@@ -10,9 +11,9 @@ library(ggplot2)
 files.sources = paste0("pages/", list.files("pages/"))
 sapply(files.sources, source)
 
-ui <- fluidPage(# Navigation bar
-    navbarPage(
+ui <- navbarPage(
         title = "LifelinesML",
+        theme = shinytheme("simplex"),
         welcome_page,
         # Insight sub menu
         navbarMenu(
@@ -20,8 +21,12 @@ ui <- fluidPage(# Navigation bar
             variable_definitions_page,
             dataset_page,
             plots_page
+        ),
+        navbarMenu(
+            title = "EDA",
+            missing_data_page
         )
-    ))
+    )
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
