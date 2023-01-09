@@ -2,6 +2,10 @@
 dataset <- read.csv(file = "Participants_Aggregated_Age.csv",
                     header = TRUE, sep = ",", dec = ",")
 
+dataset$GENDER <- as.factor(dataset$GENDER)
+dataset$GROUP_SIZE_CAT <- as.factor(dataset$GROUP_SIZE_CAT)
+
+
 dataset_page <- tabPanel(
     title = "Dataset table",
     h1("Dataset table"),
