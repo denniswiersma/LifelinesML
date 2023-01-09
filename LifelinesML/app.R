@@ -19,7 +19,7 @@ ui <- fluidPage(# Navigation bar
             title = "Insight",
             variable_definitions_page,
             dataset_page,
-            scatterplot_page
+            plots_page
         )
     ))
 
@@ -37,18 +37,30 @@ server <- function(input, output) {
     output$scatterplot <- renderPlot(ggplot(
         dataset,
         aes_string(
-            x = input$scatter_x,
-            y = input$scatter_y,
-            color = input$scatter_col
+            x = input$plots_x,
+            y = input$plots_y,
+            color = input$plots_col
         )
     ) +
         geom_point() +
         labs(title = paste(
-            colnames(dataset[input$scatter_y]),
+            colnames(dataset[input$plots_y]),
             "as a function of",
-            colnames(dataset[input$scatter_x])
+            colnames(dataset[input$plots_x])
         )))
+    
+    output$boxplot <- renderPlot(
+        ggplot(dataset, aes_string(
+            x = input$plots_x,
+            group = input$plots_x,
+            y = input$plots_y,
+            fill = input$plots_x
+        )) +
+            geom_boxplot()
+    )
 }
+
+    
 
 # Run the application
 shinyApp(ui = ui, server = server)
