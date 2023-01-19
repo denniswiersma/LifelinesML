@@ -49,18 +49,8 @@ ui <- fluidPage(
 
 ### SERVER ###
 server <- function(input, output) {
-    
-    # gen_NA_df <- function() {
-    #     rv$NA_per_col_df <- data.frame(variable = colnames(rv$dataset), NA_Values = NA_per_col[colnames(rv$dataset)])
-    # }
-
-
-    
     gen_statlist_item <- function() {
         # Calculate NA values
-        #NA_per_col <- sapply(rv$dataset, function(x) sum(is.na(x)))
-        #NA_per_col_df <- gen_NA_df()
-        
         stat_list <- list("total_NA" = sum(sapply(rv$dataset, function(x) sum(is.na(x)))),
                           "cols" = ncol(rv$dataset), 
                           "rows" = nrow(rv$dataset),
@@ -161,17 +151,11 @@ server <- function(input, output) {
 
     # Missing data button
     observeEvent(input$md_submit, {
-        #rv$dataset <- subset(rv$dataset, select = -c(which(colnames(rv$dataset) == input$md_var)))
-        
         # Calculate median totChol
-        #print(unlist(na.omit(rv$dataset[input$md_var])))
         med <- median(unlist(na.omit(rv$dataset[input$md_var])))
         print(med)
         # Change missing totChol values to median
         rv$dataset[which(is.na(rv$dataset[input$md_var])), input$md_var] <- med
-
-        # Prints all columns' number of missing values
-        #print(sapply(rv$dataset, function(x) sum(is.na(x))))
     })
 
     # Delete row button
