@@ -46,7 +46,7 @@ Running the application through your terminal of choice is possible as well. Sim
 To build a Docker image of this application make sure you have a fully working installation of [Docker](https://www.docker.com/get-started/).
 Then open up your favourite terminal, navigate to this project's root folder, and run the following command:
 ```Bash
-docker build -t lifelines_ml
+docker build -t lifelines_ml ../LifelinesML
 ```
 Once the building project finishes, you may run a container using:
 ```Bash
