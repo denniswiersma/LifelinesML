@@ -1,6 +1,8 @@
 # LifelinesML
 R shiny application made for the Honours Lab "From stupid data to intelligent Solutions" at Hanze University of Applied Sciences. Course taken in academic year of 22/23.
 
+A running version of this project can be found at [lifelinesml.denniswiersma.com](https://lifelinesml.denniswiersma.com/)
+
 ## Usage
 
 ### Getting the code
