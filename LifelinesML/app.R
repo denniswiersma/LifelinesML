@@ -5,6 +5,7 @@
 library(shiny)
 library(shinythemes)
 library(ggplot2)
+library(corrplot)
 
 # Load dataset
 dataset <- read.csv(file = "Participants_Aggregated_Age.csv",
@@ -94,6 +95,10 @@ server <- function(input, output) {
         gen_selectInput_rv_colnames("md_var", "Variable", FALSE)
     )
 
+    output$select_cor_var <- renderUI(
+      gen_selectInput_rv_colnames("cor_var", "Corralation variables", TRUE)
+    )
+
     # Generate input selection for column deletion
     output$select_del_var <- renderUI(
         gen_selectInput_rv_colnames("del_var", "Variable to delete", FALSE)
@@ -147,6 +152,17 @@ server <- function(input, output) {
         )) +
             geom_bar()
     )
+
+    output$correlationplot <- renderPlot(
+      corrplot(cor(sapply(rv$dataset[input$cor_var], as.integer)),
+               type = "lower",
+               tl.col = "black",
+               tl.cex = 0.85,
+               tl.offset = 1,
+               title = "Correlation matrix",
+               outline = TRUE,
+               mar = c(0, 0, 1, 0),
+               cl.cex = 0.75))
     ### OBSERVE EVENTS ###
 
     # Missing data button
