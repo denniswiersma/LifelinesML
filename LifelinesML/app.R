@@ -95,6 +95,7 @@ server <- function(input, output) {
         gen_selectInput_rv_colnames("md_var", "Variable", FALSE)
     )
 
+    # Generate input selection for correlation variables
     output$select_cor_var <- renderUI(
       gen_selectInput_rv_colnames("cor_var", "Corralation variables", TRUE)
     )
