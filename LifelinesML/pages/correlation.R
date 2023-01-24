@@ -11,5 +11,7 @@ correlation_page <- tabPanel(
     hr(),
     h3("Delete a variable"),
     uiOutput("select_del_var"),
-    actionButton("del", "Delete variable")
+    actionButton("del", "Delete variable"),
+    span(textOutput("del_success"), style="color:green"),
+    HTML("<br><br><br>"), # Add whitespace
 )

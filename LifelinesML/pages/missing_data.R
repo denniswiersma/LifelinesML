@@ -13,6 +13,7 @@ missing_data_page <- tabPanel(
                 choices = c("Impute by mean", "Impute by median", "Delete NA rows"),
                 multiple = FALSE),
     actionButton("md_submit", "Submit"),
+    span(textOutput("md_success"), style="color:green"),
     HTML("<br><br><br>"), # Add whitespace
 
     hr(),

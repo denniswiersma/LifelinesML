@@ -178,6 +178,9 @@ server <- function(input, output) {
           "Impute by median" = rv$dataset[which(is.na(rv$dataset[input$md_var])), input$md_var] <- median(unlist(na.omit(rv$dataset[input$md_var]))),
           "Delete NA rows" = rv$dataset <- rv$dataset[complete.cases(rv$dataset[input$md_var]),]
         )
+
+        output$md_success <- renderText("Successfully altered missing data!")
+
         new_values
     })
 
@@ -192,12 +195,16 @@ server <- function(input, output) {
           "Standard score" = rv$dataset[input$std_var] <- scale(rv$dataset[input$std_var]),
           "Min-Max" = rv$dataset[input$std_var] <- min_max(rv$dataset[input$std_var]),
         )
+
+        output$std_success <- renderText("Successfully normalised data!")
+
         new_values
     })
 
     # Delete row button
     observeEvent(input$del, {
         rv$dataset <- subset(rv$dataset, select = -which(colnames(rv$dataset) == input$del_var))
+        output$del_success <- renderText("Successfully deleted data!")
     })
 
     # Reset dataset button
