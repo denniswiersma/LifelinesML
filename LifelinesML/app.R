@@ -167,11 +167,13 @@ server <- function(input, output) {
 
     # Missing data button
     observeEvent(input$md_submit, {
-        # Calculate median totChol
-        med <- median(unlist(na.omit(rv$dataset[input$md_var])))
-        print(med)
-        # Change missing totChol values to median
-        rv$dataset[which(is.na(rv$dataset[input$md_var])), input$md_var] <- med
+        new_values <- switch(
+          input$md_method,
+          "Impute by mean" = rv$dataset[which(is.na(rv$dataset[input$md_var])), input$md_var] <- mean(unlist(na.omit(rv$dataset[input$md_var]))),
+          "Impute by median" = rv$dataset[which(is.na(rv$dataset[input$md_var])), input$md_var] <- median(unlist(na.omit(rv$dataset[input$md_var]))),
+          "Delete NA rows" = rv$dataset <- rv$dataset[complete.cases(rv$dataset[input$md_var]),]
+        )
+        new_values
     })
 
     # Delete row button
