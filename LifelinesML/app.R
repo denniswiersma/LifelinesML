@@ -40,7 +40,7 @@ ui <- fluidPage(
         navbarMenu(
             title = "EDA",
             missing_data_page,
-            normal_standard_page,
+            normalisation_page,
             transformation_page,
             correlation_page,
             imbalance_page
