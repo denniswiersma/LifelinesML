@@ -95,6 +95,11 @@ server <- function(input, output) {
         gen_selectInput_rv_colnames("md_var", "Variable", FALSE)
     )
 
+    # Generate input selection for normalisation variable
+    output$select_std_var <- renderUI(
+        gen_selectInput_rv_colnames("std_var", "Variable", FALSE)
+    )
+
     # Generate input selection for correlation variables
     output$select_cor_var <- renderUI(
       gen_selectInput_rv_colnames("cor_var", "Corralation variables", TRUE)
@@ -172,6 +177,20 @@ server <- function(input, output) {
           "Impute by mean" = rv$dataset[which(is.na(rv$dataset[input$md_var])), input$md_var] <- mean(unlist(na.omit(rv$dataset[input$md_var]))),
           "Impute by median" = rv$dataset[which(is.na(rv$dataset[input$md_var])), input$md_var] <- median(unlist(na.omit(rv$dataset[input$md_var]))),
           "Delete NA rows" = rv$dataset <- rv$dataset[complete.cases(rv$dataset[input$md_var]),]
+        )
+        new_values
+    })
+
+    # Standardisation button
+    observeEvent(input$std_submit, {
+        min_max <- function(x) {
+            (x - min(x)) / (max(x) - min(x))
+        }
+
+        new_values <- switch(
+          input$std_method,
+          "Standard score" = rv$dataset[input$std_var] <- scale(rv$dataset[input$std_var]),
+          "Min-Max" = rv$dataset[input$std_var] <- min_max(rv$dataset[input$std_var]),
         )
         new_values
     })
