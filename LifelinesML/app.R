@@ -155,13 +155,12 @@ server <- function(input, output) {
 
     output$correlationplot <- renderPlot(
       corrplot(cor(sapply(rv$dataset[input$cor_var], as.integer)),
+               title = "Correlation matrix",
                type = "lower",
                tl.col = "black",
                tl.cex = 0.85,
                tl.offset = 1,
-               title = "Correlation matrix",
                outline = TRUE,
-               mar = c(0, 0, 1, 0),
                cl.cex = 0.75))
     ### OBSERVE EVENTS ###
 
