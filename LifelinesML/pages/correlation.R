@@ -4,8 +4,12 @@ correlation_page <- tabPanel(
     p("Here you may select variables and examine their correlation. You may decide a certain variable is redundant, in which case you may opt to remove it from the dataset using the button below."),
     p("In the plot you find below the size of the circle indicates the strength of the correlation, while the shade of colour indicates whether the correlation is positive (more blue) or negative (more red)."),
     p("Please note that the plot will display an error message until you select some variables to compare."),
+    hr(),
+    h3("Correlation matrix"),
     uiOutput("select_cor_var"),
     plotOutput("correlationplot"),
+    hr(),
+    h3("Delete a variable"),
     uiOutput("select_del_var"),
     actionButton("del", "Delete variable")
 )
