@@ -2,7 +2,7 @@ FROM rocker/shiny:latest
 
 RUN apt-get update && apt-get install -y && mkdir -p /var/lib/shiny-server/bookmarks/shiny
 
-RUN R -e "install.packages(c('shiny', 'shinythemes', 'ggplot2', 'corrplot'))"
+RUN R -e "install.packages(c('shiny', 'shinythemes', 'ggplot2', 'corrplot', 'shinyjs'))"
 
 COPY ./LifelinesML/ /srv/shiny-server/
 
