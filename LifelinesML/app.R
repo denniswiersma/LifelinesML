@@ -102,6 +102,11 @@ server <- function(input, output) {
         gen_selectInput_rv_colnames("std_var", "Variable", FALSE)
     )
 
+    # Generate input selection for transformation variable
+    output$select_trans_var <- renderUI(
+        gen_selectInput_rv_colnames("trans_var", "Variable", FALSE)
+    )
+
     # Generate input selection for correlation variables
     output$select_cor_var <- renderUI(
       gen_selectInput_rv_colnames("cor_var", "Corralation variables", TRUE)
@@ -161,6 +166,18 @@ server <- function(input, output) {
             geom_bar()
     )
 
+    output$histogram <- renderPlot(
+      ggplot(rv$dataset, aes_string(
+        x = input$trans_var
+      )) + geom_bar(fill = "#D9230D")
+    )
+
+    output$qqplot <- renderPlot(
+      ggplot(rv$dataset, aes_string(
+        sample = input$trans_var
+      )) + stat_qq() + stat_qq_line(col = "red")
+    )
+
     output$correlationplot <- renderPlot(
       corrplot(cor(sapply(rv$dataset[input$cor_var], as.integer)),
                title = "Correlation matrix",
@@ -205,6 +222,24 @@ server <- function(input, output) {
         delay(ms = 1100, output$std_success <- renderText(""))
 
         new_values
+    })
+
+    # Transformation button
+    observeEvent(input$trans_submit, {
+        new_values <- switch(
+          input$trans_method,
+          "log10" = rv$dataset[input$trans_var] <- log10(rv$dataset[input$trans_var]),
+          "log2" = rv$dataset[input$trans_var] <- log2(rv$dataset[input$trans_var]),
+          "ln" = rv$dataset[input$trans_var] <- log(rv$dataset[input$trans_var]),
+          "square root"= rv$dataset[input$trans_var] <- sqrt(rv$dataset[input$trans_var]),
+          "cube root" = rv$dataset[input$trans_var] <- rv$dataset[input$trans_var]^(1/3)
+        )
+        new_values
+
+        # Display confirmation message
+        output$trans_success <- renderText("Successfully transformed data!")
+        # Remove confirmation message after 1.1 seconds
+        delay(ms = 1100, output$trans_success <- renderText(""))
     })
 
     # Delete row button
