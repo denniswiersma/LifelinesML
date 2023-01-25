@@ -197,12 +197,12 @@ server <- function(input, output) {
           "Impute by median" = rv$dataset[which(is.na(rv$dataset[input$md_var])), input$md_var] <- median(unlist(na.omit(rv$dataset[input$md_var]))),
           "Delete NA rows" = rv$dataset <- rv$dataset[complete.cases(rv$dataset[input$md_var]),]
         )
+        new_values
 
+        # Display confirmation message
         output$md_success <- renderText("Successfully altered missing data!")
         # Remove confirmation message after 1.1 seconds
         delay(ms = 1100, output$md_success <- renderText(""))
-
-        new_values
     })
 
     # Standardisation button
@@ -216,12 +216,12 @@ server <- function(input, output) {
           "Standard score" = rv$dataset[input$std_var] <- scale(rv$dataset[input$std_var]),
           "Min-Max" = rv$dataset[input$std_var] <- min_max(rv$dataset[input$std_var]),
         )
+        new_values
 
+        # Display confirmation message
         output$std_success <- renderText("Successfully normalised data!")
         # Remove confirmation message after 1.1 seconds
         delay(ms = 1100, output$std_success <- renderText(""))
-
-        new_values
     })
 
     # Transformation button
