@@ -10,7 +10,7 @@ normalisation_page <- tabPanel(
                 label = "Standardisation method",
                 choices = c("Standard score", "Min-Max"),
                 multiple = FALSE),
-    actionButton("std_submit", "Submit"),
+    actionButton("std_submit", "Normalise"),
     span(textOutput("std_success"), style="color:green"),
     HTML("<br><br><br>"), # Add whitespace
 )
