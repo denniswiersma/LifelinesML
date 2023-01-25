@@ -4,6 +4,7 @@
 ### GLOBAL ###
 library(shiny)
 library(shinythemes)
+library(shinyjs)
 library(ggplot2)
 library(corrplot)
 
@@ -25,6 +26,7 @@ ui <- fluidPage(
     style = "padding: 0px;", # no gap in navbar
     actionButton(inputId = "reset", label = "Reset data",
                  style = "position: absolute; top: 2px; right: 5px; z-index:10000;"),
+    useShinyjs(),
     
     navbarPage(
         title = "LifelinesML",
@@ -180,6 +182,8 @@ server <- function(input, output) {
         )
 
         output$md_success <- renderText("Successfully altered missing data!")
+        # Remove confirmation message after 1.1 seconds
+        delay(ms = 1100, output$md_success <- renderText(""))
 
         new_values
     })
@@ -197,6 +201,8 @@ server <- function(input, output) {
         )
 
         output$std_success <- renderText("Successfully normalised data!")
+        # Remove confirmation message after 1.1 seconds
+        delay(ms = 1100, output$std_success <- renderText(""))
 
         new_values
     })
@@ -204,7 +210,10 @@ server <- function(input, output) {
     # Delete row button
     observeEvent(input$del, {
         rv$dataset <- subset(rv$dataset, select = -which(colnames(rv$dataset) == input$del_var))
+        # Display confirmation message
         output$del_success <- renderText("Successfully deleted data!")
+        # Remove confirmation message after 1.1 seconds
+        delay(ms = 1100, output$del_success <- renderText(""))
     })
 
     # Reset dataset button
