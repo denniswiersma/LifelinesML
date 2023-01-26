@@ -44,8 +44,7 @@ ui <- fluidPage(
             missing_data_page,
             normalisation_page,
             transformation_page,
-            correlation_page,
-            imbalance_page
+            correlation_page
         )
     )
 )
