@@ -25,13 +25,13 @@ A file called `Participants_Aggregated_Age.csv` containing the relevant data sho
 The application relies upon the following R packages:
 - shiny
 - shinythemes
+- shinyjs
 - ggplot2
+- corrplot
 
-You should install them before running the application by running the following commands in your R console:
+You should install them before running the application by running the following command in your R console:
 ```R
-install.packages("shiny")
-install.packages("shinythemes")
-install.packages("ggplot2")
+install.packages(c("shiny", "shinythemes", "shinyjs", "ggplot2", "corrplot"))
 ```
 
 ### Running the app
